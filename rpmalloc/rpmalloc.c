@@ -695,7 +695,7 @@ static pthread_key_t _memory_thread_heap;
 #    define _Thread_local __declspec(thread)
 #    define TLS_MODEL
 #  else
-#    ifndef __HAIKU__
+#    if !defined(__HAIKU__) && !defined(__ANDROID_API__)
 #      define TLS_MODEL __attribute__((tls_model("initial-exec")))
 #    else
 #      define TLS_MODEL
